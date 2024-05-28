@@ -1,0 +1,82 @@
+# Sudo Aliases
+alias please="doas "
+alias sue="pkexec "
+
+# Quality of Life Stuff
+#alias cd="z "
+alias mkdir="mkdir -p"
+alias c='clear' # clear terminal
+alias cl='clear; reset; sfetch'
+alias r='clear; exec zsh; reset'
+
+# List directory aliases
+alias  l='eza -lh  --icons=auto' # long list
+alias ls='eza -1   --icons=auto' # short list
+alias ll='eza -lh --icons=auto --sort=name --group-directories-first' # long list hidden files
+alias la='eza -lha --icons=auto --sort=name --group-directories-first' # long list all
+alias ld='eza -lhD --icons=auto' # long list dirs
+
+# Change directory aliases
+alias ..='cd ..'
+alias ...='cd ../..'
+alias .3='cd ../../..'
+alias .4='cd ../../../..'
+alias .5='cd ../../../../..'
+
+# More Quality of Life Aliases
+alias ssh='kitten ssh'
+# alias rel='source .zshrc; cl'
+alias s='su -c '
+
+# Pacman Aliases
+alias pacrm='doas pacman -Runs'
+alias pacr='doas pacman -R'
+alias pacrc='doas pacman -Rcns' # Immensely dangerous when it comes to system package.
+alias pacrn='doas pacman -Rns'
+alias pacin='doas pacman -S'
+alias pacss='doas pacman -Ss'
+alias pacsyu='doas pacman -Syu'
+alias pacsu='doas pacman -Su'
+alias pacup='doas pacman -Syu'
+alias pacsy='doas pacman -Sy'
+alias pacsyy='doas pacman -Syy'
+alias pacc='doas pacman -Sc'
+alias paccc='doas pacman -Scc'
+alias paccd='doas pacman -Scd'
+alias pacccd='doas pacman -Sccd'
+alias paruc='paru -Sc'
+alias parucc='paru -Scc'
+alias pacds='paru -Ps'
+alias parus='paru -S'
+alias parucd='paru -Scd'
+alias paruccd='paru -Sccd'
+alias paruss='paru -Ss'
+alias pacss='doas pacman -Ss'
+alias pacwc='pacman -Q | wc -l'
+alias pacqwc='pacman -Qe | wc -l'
+alias pacfy='pacman -Fy'
+alias pacfyy='pacman -Fyy'
+alias pacf='pacman -F'
+
+# File-related aliases
+alias cat='bat --tabs=8'
+alias mv='mv -iv'
+alias rm='rm -iv'
+alias cp='cp -iv'
+
+# Other Aliases
+alias big="du -a -BM | sort -n -r | head -n 10"
+#alias gh="cat ~/.cache/.zsh_history | grep"
+
+# Git Aliases
+alias hadd='git --work-tree=/home/arch/ add '
+alias eadd='git --work-tree=/etc/ add '
+alias uadd='git --work-tree=/usr/ add '
+alias commit='git commit -m '
+alias push='git push'
+alias pull='git pull'
+alias rebase='git rebase'
+alias stash='git stash'
+alias jit='cd /home/arch/git/based-dotfiles/'
+alias restash='stash; stash drop'
+alias pstash='push; restash'
