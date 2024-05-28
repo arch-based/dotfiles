@@ -1,4 +1,4 @@
-#!/bin/env sh
+#!/bin/sh
 # Sudo Aliases
 alias please="doas "
 alias sue="pkexec "
