@@ -1,5 +1,5 @@
 <h1 align="center">My Dotfiles</h1>
-<img src="https://github.com/arch-based/based-dotfiles/raw/main/Pictures/Screenshots/desktop.png" width="100%" />
+<img src="Pictures/Screenshot.png" width="100%" />
 
 This is where I keep all of my dotfiles and scripts for my rice.
 
