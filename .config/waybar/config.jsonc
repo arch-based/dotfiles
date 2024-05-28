@@ -34,7 +34,7 @@
         "format": "",
         "rotate": 0,
         "exec": "echo ; echo  Power Menu",
-        "on-click": "pkill wofi; powermenu",
+        "on-click": "pkill wofi; zsh -c 'powermenu'",
         "interval" : 86400, // once every day
         "tooltip": true
     },

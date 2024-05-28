@@ -22,7 +22,7 @@ dbus-update-activation-environment --systemd DISPLAY WAYLAND_DISPLAY SWAYSOCK XD
 
 # Starts the dropdown terminal.
 sh -c "kitty --class=Dropdown_Terminal" &
-doas brightness &
+doas zsh -c "brightness" &
 
 # Launch the system tray applets.
 # nm-applet &
