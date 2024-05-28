@@ -1,0 +1,183 @@
+@import "/home/arch/colors/catpuccin-machiatto.css";
+
+* {
+    font-family: Maple Mono, Hack Nerd Font;
+    font-weight: bolder;
+    font-size: 13px;
+}
+
+window#waybar {
+  background-color: alpha(@crust, 0);
+  border: 2px solid alpha(@crust, 0);
+}
+
+window#waybar.hidden {
+    opacity: 0.2;
+}
+
+/*
+window#waybar.empty {
+    background-color: transparent;
+}
+window#waybar.solo {
+    background-color: #FFFFFF;
+}
+*/
+
+window#waybar.termite {
+    background-color: #3F3F3F;
+}
+
+window#waybar.chromium {
+    background-color: #000000;
+    border: none;
+}
+
+button {
+    /* Use box-shadow instead of border so the text isn't offset */
+    box-shadow: inset 0 -3px transparent;
+    /* Avoid rounded borders under each button name */
+    border: none;
+    border-radius: 0;
+}
+
+/* https://github.com/Alexays/Waybar/wiki/FAQ#the-workspace-buttons-have-a-strange-hover-effect */
+
+#workspaces button:hover {
+    color: @blue;
+}
+
+#workspaces button {
+    padding: 0 5px;
+    color: @surface2;
+    margin: 4px 0 4px 6px;
+    transition: color 200ms ease-in-out;
+}
+
+#workspaces button.selected {
+    color: @blue;
+}
+
+#workspaces button.active {
+    color: @blue;
+}
+
+#workspaces button.urgent {
+    color: @red;
+}
+
+#clock,
+#battery,
+#cpu,
+#memory,
+#disk,
+#temperature,
+#backlight,
+#network,
+#pulseaudio,
+#wireplumber,
+#custom-pacman,
+#custom-power,
+#tray,
+#mode,
+#idle_inhibitor,
+#scratchpad,
+#mpd {
+    padding: 0 9px;
+    color: @text;
+    border-radius: 15px;
+    margin: 5px 0;
+}
+
+#window {
+  margin-right: 5px;
+}
+#workspaces {
+    margin: 0 5px;
+}
+
+/* If workspaces is the leftmost module, reduce left margin */
+.modules-left > widget:first-child > #workspaces {
+    margin-left: 2px;
+}
+
+#backlight {
+  color: @peach
+}
+
+#clock {
+  color: @blue;
+}
+
+#custom-pacman {
+  color: @peach;
+}
+
+#pulseaudio {
+  color: @mauve;
+}
+
+#pulseaudio.muted {
+  color: @surface2;
+}
+
+#network {
+  color: @blue;
+}
+
+#network.disconnected {
+  color: @surface2;
+}
+
+#battery {
+    color: @green;
+}
+
+#battery.warning:not(.charging) {
+    color: @red;
+}
+
+#custom-power {
+  color: @maroon;
+  margin-right: 5px;
+}
+
+#keyboard-state > label {
+    padding: 0 5px;
+}
+
+#keyboard-state > label.locked {
+    background: rgba(0, 0, 0, 0.2);
+}
+
+#scratchpad {
+    background: rgba(0, 0, 0, 0.2);
+}
+
+#scratchpad.empty {
+	background-color: transparent;
+}
+
+
+.modules-right {
+    background-color: @crust;
+	border-radius: 15px;
+  color: #89b4fa
+}
+
+.modules-left {
+    background-color: @crust;
+  padding-right: 5px;
+  border-radius: 15px;
+  color: #89b4fa
+}
+
+.modules-center {
+    background-color: @crust;
+  padding: 0 5px;
+  border-radius: 15px;
+  color: #89b4fa
+}
+
+/* vim: ft=sass
+*/
