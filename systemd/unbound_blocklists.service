@@ -1,0 +1,13 @@
+[Unit]
+Description=Weekly Update of Blocklists For Unbound
+
+[Service]
+Type=oneshot
+ExecStart=/usr/local/bin/unbound-blocklist
+
+[Timer]
+OnCalendar=weekly
+Persistent=true
+
+[Install]
+WantedBy=multi-user.target
