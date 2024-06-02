@@ -1,0 +1,2 @@
+#!/bin/sh
+cp -riv /etc/systemd/system/unbound_blocklists.service /home/arch/dotfiles/systemd/unbound_blocklists.service && cp -riv /etc/unbound /home/arch/dotfiles/unbound && chown -R arch:arch /home/arch && exit 0
