@@ -2,7 +2,6 @@
 
 # Launch Hyprland Applications
 hyprpaper &
-hypridle &
 
 # Launch the status bar
 /usr/bin/waybar &>/dev/null &
