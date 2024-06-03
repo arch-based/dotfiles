@@ -5,6 +5,5 @@ gh
 READM*
 LISENC*
 systemd
-unbound*
 unbound
 .service
