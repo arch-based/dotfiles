@@ -1,5 +1,11 @@
 #!/bin/bash
 
+# Check if the user is a root user with EUID
+if [ "$EUID" -ne 0 ]; then
+    echo "This script requires superuser privileges. Please run it as root."
+    exit 1
+fi
+
 # Prompt the user for the username
 echo "Enter the username to use for the copied files: "
 read -r username
@@ -15,6 +21,7 @@ cp -riv /etc/systemd/system/unbound_blocklists.service "/home/$username/dotfiles
 cp -riv /etc/unbound "/home/$username/dotfiles/unbound"
 cp -riv /root/bin/unbound-blocklist "/home/$username/dotfiles/bin"
 cp -riv /root/bin/link_unbound "/home/$username/dotfiles/bin"
+chmod +x "/home/$username/dotfiles/bin/link_unbound"
 
 # Change ownership of the copied files
 chown -R "$username:$username" "/home/$username"
