@@ -1,0 +1,18 @@
+#!/bin/env sh
+
+if [ "$EUID" -eq 0 ]; then
+  echo -e "server:\n" | tee /etc/unbound/policies/*-blocklist.conf
+  curl https://raw.githubusercontent.com/PeterDaveHello/url-shorteners/master/list | awk '/^[^#]/ { print "local-zone: \"" $1 "." "\" always_null" }' >> /etc/unbound/policies/url-shorteners-blocklist.conf
+  curl https://raw.githubusercontent.com/r-a-y/mobile-hosts/master/AdguardMobileAds.txt | awk '/^[^#]/ { print "local-zone: \"" $2 "." "\" always_null" }' >> /etc/unbound/policies/mobile-blocklist.conf
+  curl http://sbc.io/hosts/alternates/porn-only/hosts | awk '/^[^#]/ { print "local-zone: \"" $2 "." "\" always_null" }' >> /etc/unbound/policies/nsfw-blocklist.conf
+  curl https://raw.githubusercontent.com/hagezi/dns-blocklists/main/hosts/ultimate.txt | awk '/^[^#]/ { print "local-zone: \"" $2 "." "\" always_null" }' >> /etc/unbound/policies/hegazi-blocklist.conf
+  curl https://raw.githubusercontent.com/nextdns/native-tracking-domains/main/domains/huawei | awk '/^[^#]/ { print "local-zone: \"" $1 "." "\" always_null" }' >> /etc/unbound/policies/huawei-blocklist.conf
+  curl https://raw.githubusercontent.com/nextdns/native-tracking-domains/main/domains/windows | awk '/^[^#]/ { print "local-zone: \"" $1 "." "\" always_null" }' >> /etc/unbound/policies/windows-blocklist.conf
+  curl https://raw.githubusercontent.com/nextdns/native-tracking-domains/main/domains/apple | awk '/^[^#]/ { print "local-zone: \"" $1 "." "\" always_null" }' >> /etc/unbound/policies/apple-blocklist.conf
+  echo "Applying some fixes to hegazi blocklist to not block graph components of facebook: *graph.facebook.com"
+  cat /etc/unbound/policies/hegazi-blocklist.conf | awk '!/(graph\.facebook\.com|b-graph\.facebook\.com|b-z-graph\.facebook\.com)/' > /etc/unbound/policies/hegazi-blocklist.conf
+  systemctl restart unbound
+else
+  echo "Root permissions are required to run this script. (os error 13)"
+  exit 13
+fi

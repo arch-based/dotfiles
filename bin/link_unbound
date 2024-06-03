@@ -1,2 +1,22 @@
-#!/bin/sh
-cp -riv /etc/systemd/system/unbound_blocklists.service /home/arch/dotfiles/systemd/unbound_blocklists.service && cp -riv /etc/unbound /home/arch/dotfiles/unbound && chown -R arch:arch /home/arch && exit 0
+#!/bin/bash
+
+# Prompt the user for the username
+echo "Enter the username to use for the copied files: "
+read -r username
+
+# Check if required directories exist
+if [ ! -d "/etc/unbound" ] || [ ! -d "/root/bin" ] || [ ! -d "/home/$username" ] || [ ! -d "/home/$username/dotfiles" ]; then
+    echo "Required directories do not exist."
+    exit 1
+fi
+
+# Copy files and directories
+cp -riv /etc/systemd/system/unbound_blocklists.service "/home/$username/dotfiles/systemd/unbound_blocklists.service"
+cp -riv /etc/unbound "/home/$username/dotfiles/unbound"
+cp -riv /root/bin/unbound-blocklist "/home/$username/dotfiles/bin"
+cp -riv /root/bin/link_unbound "/home/$username/dotfiles/bin"
+
+# Change ownership of the copied files
+chown -R "$username:$username" "/home/$username"
+
+exit 0
