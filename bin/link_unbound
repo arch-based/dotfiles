@@ -18,7 +18,7 @@ fi
 
 # Copy files and directories
 cp -riv /etc/systemd/system/unbound_blocklists.service "/home/$username/dotfiles/systemd/unbound_blocklists.service"
-cp -riv /etc/unbound "/home/$username/dotfiles/unbound"
+cp -riv /etc/unbound "/home/$username/dotfiles/"
 cp -riv /root/bin/unbound-blocklist "/home/$username/dotfiles/bin"
 cp -riv /root/bin/link_unbound "/home/$username/dotfiles/bin"
 chmod +x "/home/$username/dotfiles/bin/link_unbound"
