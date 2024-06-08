@@ -11,7 +11,7 @@ if [ "$EUID" -eq 0 ]; then
   curl https://raw.githubusercontent.com/nextdns/native-tracking-domains/main/domains/apple | awk '/^[^#]/ { print "local-zone: \"" $1 "." "\" always_null" }' >> /etc/unbound/policies/apple-blocklist.conf
   echo "Applying some fixes to hegazi blocklist to not block graph components of facebook: *graph.facebook.com"
   cat /etc/unbound/policies/hegazi-blocklist.conf | awk '!/(graph\.facebook\.com|b-graph\.facebook\.com|b-z-graph\.facebook\.com)/' > /etc/unbound/policies/hegazi-blocklist.conf
-  systemctl restart unbound
+  killall unbound; unbound
 else
   echo "Root permissions are required to run this script. (os error 13)"
   exit 13

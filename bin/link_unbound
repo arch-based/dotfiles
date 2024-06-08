@@ -17,10 +17,10 @@ if [ ! -d "/etc/unbound" ] || [ ! -d "/root/bin" ] || [ ! -d "/home/$username" ]
 fi
 
 # Copy files and directories
-cp -riv /etc/systemd/system/unbound_blocklists.service "/home/$username/dotfiles/systemd/unbound_blocklists.service"
-cp -riv /etc/unbound "/home/$username/dotfiles/"
-cp -riv /root/bin/unbound-blocklist "/home/$username/dotfiles/bin"
-cp -riv /root/bin/link_unbound "/home/$username/dotfiles/bin"
+cp -r /etc/systemd/system/unbound_blocklists.service "/home/$username/dotfiles/systemd/unbound_blocklists.service"
+cp -r /etc/unbound "/home/$username/dotfiles/"
+cp -r /root/bin/unbound-blocklist "/home/$username/dotfiles/bin"
+cp -r /root/bin/link_unbound "/home/$username/dotfiles/bin"
 chmod +x "/home/$username/dotfiles/bin/link_unbound"
 
 # Change ownership of the copied files

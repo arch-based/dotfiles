@@ -3,6 +3,9 @@
 # Launch Hyprland Applications
 hyprpaper &
 
+# Launch Unbound w/ Hyprland
+unbound
+
 # Launch the status bar
 /usr/bin/waybar &>/dev/null &
 
