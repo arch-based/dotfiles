@@ -7,3 +7,5 @@ LISENC*
 systemd
 unbound
 .service
+etc
+doas.conf
