@@ -1,20 +1,29 @@
 #!/bin/env sh
 
-if [ "$EUID" -eq 0 ]; then
-  echo -e "server:\n" | tee /etc/unbound/policies/*-blocklist.conf
-  curl https://raw.githubusercontent.com/PeterDaveHello/url-shorteners/master/list | awk '/^[^#]/ { print "local-zone: \"" $1 "." "\" always_null" }' >> /etc/unbound/policies/url-shorteners-blocklist.conf
-  curl https://raw.githubusercontent.com/r-a-y/mobile-hosts/master/AdguardMobileAds.txt | awk '/^[^#]/ { print "local-zone: \"" $2 "." "\" always_null" }' >> /etc/unbound/policies/mobile-blocklist.conf
-  curl http://sbc.io/hosts/alternates/porn-only/hosts | awk '/^[^#]/ { print "local-zone: \"" $2 "." "\" always_null" }' >> /etc/unbound/policies/nsfw-blocklist.conf
-  curl https://raw.githubusercontent.com/hagezi/dns-blocklists/main/hosts/ultimate.txt | awk '/^[^#]/ { print "local-zone: \"" $2 "." "\" always_null" }' >> /etc/unbound/policies/hegazi-blocklist.conf
-  curl https://raw.githubusercontent.com/nextdns/native-tracking-domains/main/domains/huawei | awk '/^[^#]/ { print "local-zone: \"" $1 "." "\" always_null" }' >> /etc/unbound/policies/huawei-blocklist.conf
-  curl https://raw.githubusercontent.com/nextdns/native-tracking-domains/main/domains/windows | awk '/^[^#]/ { print "local-zone: \"" $1 "." "\" always_null" }' >> /etc/unbound/policies/windows-blocklist.conf
-  curl https://raw.githubusercontent.com/nextdns/native-tracking-domains/main/domains/apple | awk '/^[^#]/ { print "local-zone: \"" $1 "." "\" always_null" }' >> /etc/unbound/policies/apple-blocklist.conf
-  echo "Creating a whitelist to whitelist graph components of facebook: *graph.facebook.com"
-  echo -e 'server:\nlocal-zone: "graph.facebook.com." transparent' >> /etc/unbound/policies/fb-whitelist.conf
-  echo -e 'local-zone: "b-graph.facebook.com." transparent' >> /etc/unbound/policies/fb-whitelist.conf
-  echo -e 'local-zone: "graph.instagram.com." transparent' >> /etc/unbound/policies/fb-whitelist.conf
-  killall unbound; unbound
-else
+# Check if running with root privileges
+if [ "$EUID" -ne 0 ]; then
   echo "Root permissions are required to run this script. (os error 13)"
   exit 13
 fi
+
+# Apply all of the blocklists to the policies directory.
+echo "Downloading all of the blocklists and apply some fixes to make them compatible with the Unbound syntax."
+echo -e "server:\n" | tee /etc/unbound/policies/*-blocklist.conf
+
+# Download and apply blocklists
+curl -s https://raw.githubusercontent.com/PeterDaveHello/url-shorteners/master/list | awk '/^[^#]/ { print "local-zone: \"" $1 "." "\" always_null" }' >> /etc/unbound/policies/url-shorteners-blocklist.conf
+curl -s https://raw.githubusercontent.com/r-a-y/mobile-hosts/master/AdguardMobileAds.txt | awk '/^[^#]/ { print "local-zone: \"" $2 "." "\" always_null" }' >> /etc/unbound/policies/mobile-blocklist.conf
+curl -s http://sbc.io/hosts/alternates/porn-only/hosts | awk '/^[^#]/ { print "local-zone: \"" $2 "." "\" always_null" }' >> /etc/unbound/policies/nsfw-blocklist.conf
+curl -s https://raw.githubusercontent.com/hagezi/dns-blocklists/main/hosts/ultimate.txt | awk '/^[^#]/ { print "local-zone: \"" $2 "." "\" always_null" }' >> /etc/unbound/policies/hegazi-blocklist.conf
+curl -s https://raw.githubusercontent.com/nextdns/native-tracking-domains/main/domains/huawei | awk '/^[^#]/ { print "local-zone: \"" $1 "." "\" always_null" }' >> /etc/unbound/policies/huawei-blocklist.conf
+curl -s https://raw.githubusercontent.com/nextdns/native-tracking-domains/main/domains/windows | awk '/^[^#]/ { print "local-zone: \"" $1 "." "\" always_null" }' >> /etc/unbound/policies/windows-blocklist.conf
+curl -s https://raw.githubusercontent.com/nextdns/native-tracking-domains/main/domains/apple | awk '/^[^#]/ { print "local-zone: \"" $1 "." "\" always_null" }' >> /etc/unbound/policies/apple-blocklist.conf
+
+# Create the whitelist to whitelist some graph components of facebook that are required to run facebook.
+echo "Creating a whitelist to whitelist graph components of facebook: *graph.facebook.com"
+echo -e 'server:\n\nlocal-zone: "graph.facebook.com." transparent' > /etc/unbound/policies/whitelist.conf
+echo 'local-zone: "b-graph.facebook.com." transparent' >> /etc/unbound/policies/whitelist.conf
+echo 'local-zone: "graph.instagram.com." transparent' >> /etc/unbound/policies/whitelist.conf
+
+# Restart Unbound
+killall unbound; unbound
