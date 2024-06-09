@@ -21,6 +21,8 @@ cp -r /etc/systemd/system/unbound_blocklists.service "/home/$username/dotfiles/s
 cp -r /etc/unbound "/home/$username/dotfiles/"
 cp -r /root/bin/unbound-blocklist "/home/$username/dotfiles/bin"
 cp -r /root/bin/link_unbound "/home/$username/dotfiles/bin"
+cp -r /etc/doas.conf "/home/$username/dotfiles/etc"
+cp -r /etc/systemd/resolved.conf "/home/$username/dotfiles/etc"
 chmod +x "/home/$username/dotfiles/bin/link_unbound"
 
 # Change ownership of the copied files

@@ -4,7 +4,7 @@
 hyprpaper &
 
 # Launch Unbound w/ Hyprland
-unbound
+doas unbound &
 
 # Launch the status bar
 /usr/bin/waybar &>/dev/null &
