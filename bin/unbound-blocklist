@@ -18,6 +18,9 @@ curl -s https://raw.githubusercontent.com/hagezi/dns-blocklists/main/hosts/ultim
 curl -s https://raw.githubusercontent.com/nextdns/native-tracking-domains/main/domains/huawei | awk '/^[^#]/ { print "local-zone: \"" $1 "." "\" always_null" }' >> /etc/unbound/policies/huawei-blocklist.conf
 curl -s https://raw.githubusercontent.com/nextdns/native-tracking-domains/main/domains/windows | awk '/^[^#]/ { print "local-zone: \"" $1 "." "\" always_null" }' >> /etc/unbound/policies/windows-blocklist.conf
 curl -s https://raw.githubusercontent.com/nextdns/native-tracking-domains/main/domains/apple | awk '/^[^#]/ { print "local-zone: \"" $1 "." "\" always_null" }' >> /etc/unbound/policies/apple-blocklist.conf
+#curl -s https://raw.githubusercontent.com/nextdns/dns-bypass-methods/main/encrypted-dns | awk '/^[^#]/ { print "local-zone: \"" $1 "." "\" always_null" }' >> /etc/unbound/policies/encrypted-blocklist.conf
+#curl -s https://raw.githubusercontent.com/nextdns/dns-bypass-methods/main/proxies | awk '/^[^#]/ { print "local-zone: \"" $1 "." "\" always_null" }' >> /etc/unbound/policies/proxies-blocklist.conf
+#curl -s https://raw.githubusercontent.com/nextdns/dns-bypass-methods/main/vpn | awk '/^[^#]/ { print "local-zone: \"" $1 "." "\" always_null" }' >> /etc/unbound/policies/vpn-blocklist.conf
 
 # Create the whitelist to whitelist some graph components of facebook that are required to run facebook.
 echo "Creating a whitelist to whitelist graph components of facebook: *graph.facebook.com"
