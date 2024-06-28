@@ -7,7 +7,7 @@ Feel free to copy any of the dotfiles or scripts you find here, as much of it is
 
 I host a DNS Server at the same machine I do stuff which is unbound, so you might need to install unbound to use my dotfiles. This unbound configuration is advanced, complex, and uses dns over tls as a dns forwarder. 
 
-For other projects made by me, go to my [Page](https://github.com/arch-based/). There, you'll see my projects that I am working on, such as my dotfiles, and different types of reimplementation of fetcher. Sadly fetcher-based was replaced with Rust because of the security vulnerablities on C++.
+For other projects made by me, go to my [Page](https://github.com/arch-based). There, you'll see my projects that I am working on, such as my dotfiles, and different types of reimplementation of fetcher, a reimagined neofetch that suddenly discontinued.
 ## Software I Use
 
 - Operating System btw: [Arch Linux](https://archlinux.org/)
