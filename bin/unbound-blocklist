@@ -29,5 +29,7 @@ echo 'local-zone: "b-graph.facebook.com." transparent' >> /etc/unbound/policies/
 echo 'local-zone: "graph.instagram.com." transparent' >> /etc/unbound/policies/whitelist.conf
 echo -e 'server:\n\nlocal-zone: "gateway.local." redirect' > /etc/unbound/policies/rewrites.conf
 echo 'local-data: "gateway.local. A 10.5.1.1"' >> /etc/unbound/policies/rewrites.conf
+echo 'local-zone: "temu.com." always_null' > /etc/unbound/policies/rewrites.conf
+
 # Restart Unbound
 killall unbound; unbound
