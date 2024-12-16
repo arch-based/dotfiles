@@ -1,5 +1,5 @@
 #!/bin/env zsh
-#source /usr/share/zsh/plugins/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh
+#source /usr/share/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh
 #source /usr/share/zsh/plugins/zsh-autosuggestions/zsh-autosuggestions.zsh
 autoload -U compinit promptinit
 compinit
@@ -38,3 +38,5 @@ zstyle ':fzf-tab:complete:__zoxide_z:*' fzf-preview 'eza --icons=auto $realpath'
 # Shell integrations
 eval "$(fzf --zsh)"
 eval "$(zoxide init --cmd cd zsh)"
+source /home/gentoo/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh
+source /home/gentoo/zsh-autosuggestions/zsh-autosuggestions.zsh

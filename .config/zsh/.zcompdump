@@ -477,7 +477,6 @@ _comps=(
 'functions' '_typeset'
 'fuser' '_fuser'
 'fusermount' '_fusermount'
-'fuzzel' '_fuzzel'
 'fwhois' '_whois'
 'fw_update' '_fw_update'
 'g++' '_gcc'
@@ -1450,6 +1449,7 @@ _comps=(
 'swift' '_swift'
 'swiftc' '_swift'
 'sw_vers' '_sw_vers'
+'swww' '_swww'
 'sync' '_nothing'
 'sysclean' '_sysclean'
 'sysctl' '_sysctl'
@@ -1932,12 +1932,12 @@ bindkey '^[~' _bash_complete-word
 autoload -Uz _bat _binutils-config _bootctl _busctl _curl \
             _eix _eix-header _eix-installed _eix-installed-after _eix-remote \
             _eix-sync _eix-test-obsolete _ekeyword _eselect _eza \
-            _fastfetch _fuzzel _gcc-config _g-cpan _genfstab \
-            _genlop _gentoo_arches _gentoolkit _gentoo_packages _gentoo_repos \
-            _gentoo_repos_conf _kernel-install _kitty _layman _libinput \
-            _loginctl _meson _ninja _openrc _patchelf \
-            _perl-cleaner _portage _portage_utils _pulseaudio _quoter \
-            _rc-service _rc-status _rc-update _swaylock _systemd-tmpfiles \
+            _fastfetch _gcc-config _g-cpan _genfstab _genlop \
+            _gentoo_arches _gentoolkit _gentoo_packages _gentoo_repos _gentoo_repos_conf \
+            _kernel-install _kitty _layman _libinput _loginctl \
+            _meson _ninja _openrc _patchelf _perl-cleaner \
+            _portage _portage_utils _pulseaudio _quoter _rc-service \
+            _rc-status _rc-update _swaylock _swww _systemd-tmpfiles \
             _udevadm _wgetpaste _wl-copy _wl-paste _wpctl \
             _zoxide _cdr _floppy _logical_volumes _lscfg \
             _lsdev _lslv _lspv _lsvg _object_classes \
