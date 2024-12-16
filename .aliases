@@ -70,7 +70,7 @@ alias big="du -a -BM | sort -n -r | head -n 10"
 #alias gh="cat ~/.cache/.zsh_history | grep"
 
 # Git Aliases
-alias hadd='git --work-tree=/home/arch/ add '
+alias hadd='git --work-tree=$HOME add '
 alias eadd='git --work-tree=/etc/ add '
 alias uadd='git --work-tree=/usr/ add '
 alias commit='git commit -m '
@@ -78,7 +78,7 @@ alias push='git push'
 alias pull='git pull'
 alias rebase='git rebase'
 alias stash='git stash'
-alias jit='cd /home/arch/git/based-dotfiles/'
+alias jit='cd $HOME/dotfiles/'
 alias restash='stash; stash drop'
 alias pstash='push; restash'
 alias stow='stow -v -R'
