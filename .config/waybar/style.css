@@ -1,8 +1,8 @@
-@import "/home/arch/.config/waybar/mocha.css";
+@import "mocha.css";
 
 * {
     /* all: initial; */
-    font-family: Maple Mono, Hack Nerd Font;
+    font-family: JetBrains Mono NF, Hack Nerd Font;
     font-weight: bolder;
     font-size: 13px;
 }

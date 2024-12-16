@@ -4,8 +4,8 @@
     "height": 15, // Waybar height (to be removed for auto height)
     "spacing": 2, // Gaps between modules (4px)
     // Choose the order of the modules
-    "modules-left": ["hyprland/workspaces"],
-    "modules-center": ["hyprland/window"],
+    "modules-left": ["niri/workspaces"],
+    "modules-center": ["niri/window"],
     "modules-right": ["tray", "backlight", "battery", "pulseaudio", "clock", "custom/power"],
     // Modules configuration
     "tray": {
@@ -13,7 +13,7 @@
         "rotate": 0,
         "spacing": 5
     },
-    "hyprland/workspaces": {
+    "niri/workspaces": {
         "disable-scroll": true,
         "all-outputs": true,
         "format": "{icon}",
@@ -38,8 +38,8 @@
         "interval" : 86400, // once every day
         "tooltip": true
     },
-    "hyprland/window": {
-        "format": "  {}",
+    "niri/window": {
+        "format": "  {}",
         "rotate": 0,
         "separate-outputs": true,
         "rewrite": {

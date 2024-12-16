@@ -1,8 +1,12 @@
 #!/bin/env zsh
-source /usr/share/zsh/plugins/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh
-source /usr/share/zsh/plugins/zsh-autosuggestions/zsh-autosuggestions.zsh
+#source /usr/share/zsh/plugins/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh
+#source /usr/share/zsh/plugins/zsh-autosuggestions/zsh-autosuggestions.zsh
+autoload -U compinit promptinit
+compinit
+promptinit; prompt gentoo
+
 source ~/.aliases
-sfetch
+cfetch
 
 #alias config='/usr/bin/git --git-dir=/home/arch/.cfg/ --work-tree=/home/arch'
 

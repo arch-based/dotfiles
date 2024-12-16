@@ -1,7 +1,7 @@
 #!/bin/sh
 # Sudo Aliases
 alias please="doas "
-alias sue="pkexec "
+#alias sue="pkexec "
 
 # Quality of Life Stuff
 #alias cd="z "
@@ -30,34 +30,34 @@ alias ssh='kitten ssh'
 alias s='su -c '
 
 # Pacman Aliases
-alias pacrm='doas pacman -Runs'
-alias pacr='doas pacman -R'
-alias pacrc='doas pacman -Rcns' # Immensely dangerous when it comes to system package.
-alias pacrn='doas pacman -Rns'
-alias pacin='doas pacman -S'
-alias pacss='doas pacman -Ss'
-alias pacsyu='doas pacman -Syu'
-alias pacsu='doas pacman -Su'
-alias pacup='doas pacman -Syu'
-alias pacsy='doas pacman -Sy'
-alias pacsyy='doas pacman -Syy'
-alias pacc='doas pacman -Sc'
-alias paccc='doas pacman -Scc'
-alias paccd='doas pacman -Scd'
-alias pacccd='doas pacman -Sccd'
-alias paruc='paru -Sc'
-alias parucc='paru -Scc'
-alias pacds='paru -Ps'
-alias parus='paru -S'
-alias parucd='paru -Scd'
-alias paruccd='paru -Sccd'
-alias paruss='paru -Ss'
-alias pacss='doas pacman -Ss'
-alias pacwc='doas pacman -Q | wc -l'
-alias pacqwc='doas pacman -Qe | wc -l'
-alias pacfy='doas pacman -Fy'
-alias pacfyy='doas pacman -Fyy'
-alias pacf='doas pacman -F'
+#alias pacrm='doas pacman -Runs'
+#alias pacr='doas pacman -R'
+#alias pacrc='doas pacman -Rcns' # Immensely dangerous when it comes to system package.
+#alias pacrn='doas pacman -Rns'
+#alias pacin='doas pacman -S'
+#alias pacss='doas pacman -Ss'
+#alias pacsyu='doas pacman -Syu'
+#alias pacsu='doas pacman -Su'
+#alias pacup='doas pacman -Syu'
+#alias pacsy='doas pacman -Sy'
+#alias pacsyy='doas pacman -Syy'
+#alias pacc='doas pacman -Sc'
+#alias paccc='doas pacman -Scc'
+#alias paccd='doas pacman -Scd'
+#alias pacccd='doas pacman -Sccd'
+#alias paruc='paru -Sc'
+#alias parucc='paru -Scc'
+#alias pacds='paru -Ps'
+#alias parus='paru -S'
+#alias parucd='paru -Scd'
+#alias paruccd='paru -Sccd'
+#alias paruss='paru -Ss'
+#alias pacss='doas pacman -Ss'
+#alias pacwc='doas pacman -Q | wc -l'
+#alias pacqwc='doas pacman -Qe | wc -l'
+#alias pacfy='doas pacman -Fy'
+#alias pacfyy='doas pacman -Fyy'
+#alias pacf='doas pacman -F'
 
 # File-related aliases
 alias cat='bat --tabs=8'
